@@ -1,0 +1,250 @@
+﻿<Window x:Class="WeatherApp.View.WeatherWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeatherApp.View"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:vm="clr-namespace:WeatherApp.ViewModel"
+        mc:Ignorable="d"
+        Title="WeatherWindow" Height="675" Width="390"
+           WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
+        >
+    <Window.Resources>
+        <vm:WeatherVM x:Key="vm"/>
+    </Window.Resources>
+    <Border >
+        <Border.Background>
+            <!--<ImageBrush ImageSource="\Images\1.gif"
+                  Stretch="None" />-->
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Image gif:ImageBehavior.AnimatedSource="\Images\1.gif"
+                   gif:ImageBehavior.AutoStart="True"
+               />
+                </VisualBrush.Visual>
+            </VisualBrush>
+
+        </Border.Background>
+
+        <Border                    
+            BorderThickness="2"
+            Opacity="0.90">
+
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Transparent" Offset="0"/>
+                    <GradientStop Color="Blue" Offset="0.75"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="Transparent" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid DataContext="{StaticResource vm}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                  
+                    <Button x:Name="btnMinimize"                           
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="16"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btnMinimize_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+                    <Button x:Name="btnClose"                          
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Click="btnClose_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="red"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#C62DAE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel Margin="10">
+
+                        <TextBlock Text="Search for a City :"
+                                   FontSize="15"
+                                   FontWeight="DemiBold"
+                                     Foreground="White"
+                                   />
+                        <TextBox x:Name="txtSearch"
+                             Text="{Binding Query,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,2"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             Padding="20,0,0,0">
+
+                            <TextBox.Background>
+                                <ImageBrush ImageSource="C:\Users\ahmad\Desktop\C#\WeatherApp\WeatherApp\Images\nav-icon.png"
+                                        Stretch="None"
+                                        AlignmentX="Left"/>
+                            </TextBox.Background>
+                        </TextBox>
+
+                        <Button x:Name="btnSearch" 
+                            Command="{Binding SearchCommand}"
+                                CommandParameter="{Binding Query}"
+                            BorderThickness="0"
+                            Content="Search"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"                           
+                            Margin="0,10">
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="LightBlue"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#28AEED"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="150" Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <ListView>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <TextBlock/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+
+
+                    </StackPanel>
+
+                </Grid>
+
+                <Grid Grid.Row="2"
+              Background="#4392f1"
+                      Opacity="0.90" Margin="0,418,0,0"
+                     DataContext="{Binding CurrentConditions}"
+              >
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="0,10" >
+                        <TextBlock
+                            DataContext="{StaticResource vm}"
+                            Text="{Binding SelectedCity.LocalizedName}"
+                           Foreground="#f4f4f8"
+                           FontSize="20"
+                           Margin="20,0"/>
+                        <TextBlock Text="{Binding WeatherText}"
+                           Foreground="#f4f4f8"
+                           FontSize="18"
+                           Margin="20,0"/>
+                    </StackPanel>
+                    <TextBlock Grid.Column="1"
+                       VerticalAlignment="Center"
+                       Text="{Binding Temperature.Metric.Value,StringFormat={}{0}°C }"
+                       Foreground="#f4f4f8"
+                         FontSize="30"
+                           Margin="20,0"/>
+                </Grid>
+
+            </Grid>
+        </Border>
+
+    </Border>
+</Window>

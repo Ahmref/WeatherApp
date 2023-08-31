@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\1.gif" />
+    <None Remove="Images\2.gif" />
+    <None Remove="Images\3.gif" />
+    <None Remove="Images\nav-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\1.gif" />
+    <Resource Include="Images\2.gif" />
+    <Resource Include="Images\3.gif" />
+    <Resource Include="Images\nav-icon.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,152 @@
+[
+  {
+    "Version": 1,
+    "Key": "171239",
+    "Type": "City",
+    "Rank": 31,
+    "LocalizedName": "Dresden",
+    "Country": {
+      "ID": "DE",
+      "LocalizedName": "Germany"
+    },
+    "AdministrativeArea": {
+      "ID": "SN",
+      "LocalizedName": "Saxony"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "220673",
+    "Type": "City",
+    "Rank": 75,
+    "LocalizedName": "Dressikie",
+    "Country": {
+      "ID": "JM",
+      "LocalizedName": "Jamaica"
+    },
+    "AdministrativeArea": {
+      "ID": "05",
+      "LocalizedName": "Saint Mary"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "173813",
+    "Type": "City",
+    "Rank": 83,
+    "LocalizedName": "Dreschvitz",
+    "Country": {
+      "ID": "DE",
+      "LocalizedName": "Germany"
+    },
+    "AdministrativeArea": {
+      "ID": "MV",
+      "LocalizedName": "Mecklenburg-West"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "174201",
+    "Type": "City",
+    "Rank": 83,
+    "LocalizedName": "Drestedt",
+    "Country": {
+      "ID": "DE",
+      "LocalizedName": "Germany"
+    },
+    "AdministrativeArea": {
+      "ID": "NI",
+      "LocalizedName": "Lower Saxony"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "2918396",
+    "Type": "City",
+    "Rank": 85,
+    "LocalizedName": "Dresaru",
+    "Country": {
+      "ID": "IN",
+      "LocalizedName": "India"
+    },
+    "AdministrativeArea": {
+      "ID": "OR",
+      "LocalizedName": "Odisha"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "2277610",
+    "Type": "City",
+    "Rank": 85,
+    "LocalizedName": "Dresano",
+    "Country": {
+      "ID": "IT",
+      "LocalizedName": "Italy"
+    },
+    "AdministrativeArea": {
+      "ID": "25",
+      "LocalizedName": "Lombardy"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "2545765",
+    "Type": "City",
+    "Rank": 85,
+    "LocalizedName": "Dres",
+    "Country": {
+      "ID": "IT",
+      "LocalizedName": "Italy"
+    },
+    "AdministrativeArea": {
+      "ID": "32",
+      "LocalizedName": "Trentino-Alto Adige"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "2102282",
+    "Type": "City",
+    "Rank": 85,
+    "LocalizedName": "Dresden",
+    "Country": {
+      "ID": "US",
+      "LocalizedName": "United States"
+    },
+    "AdministrativeArea": {
+      "ID": "NY",
+      "LocalizedName": "New York"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "2190992",
+    "Type": "City",
+    "Rank": 85,
+    "LocalizedName": "Dresden",
+    "Country": {
+      "ID": "US",
+      "LocalizedName": "United States"
+    },
+    "AdministrativeArea": {
+      "ID": "OH",
+      "LocalizedName": "Ohio"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "335628",
+    "Type": "City",
+    "Rank": 85,
+    "LocalizedName": "Dresden",
+    "Country": {
+      "ID": "US",
+      "LocalizedName": "United States"
+    },
+    "AdministrativeArea": {
+      "ID": "TN",
+      "LocalizedName": "Tennessee"
+    }
+  }
+]
