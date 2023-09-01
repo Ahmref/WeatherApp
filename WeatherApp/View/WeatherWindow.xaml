@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WeatherApp.View"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:vm="clr-namespace:WeatherApp.ViewModel"
+        xmlns:converters="clr-namespace:WeatherApp.ViewModel.ValueConverters"
         mc:Ignorable="d"
         Title="WeatherWindow" Height="675" Width="390"
            WindowStyle="None"
@@ -17,6 +18,7 @@
         >
     <Window.Resources>
         <vm:WeatherVM x:Key="vm"/>
+        <converters:BoolToRainConverter x:Key="BoolToRain"/>
     </Window.Resources>
     <Border >
         <Border.Background>
@@ -54,7 +56,7 @@
             <Grid DataContext="{StaticResource vm}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" MinHeight="552"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
@@ -197,11 +199,13 @@
                                 </ControlTemplate>
                             </Button.Template>
                         </Button>
-                        <ListView>
+                        <ListView ItemsSource="{Binding Cities}" 
+                                  Background="Transparent"
+                                  SelectedValue="{Binding SelectedCity}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
-                                        <TextBlock/>
+                                        <TextBlock Text="{Binding LocalizedName}"/>
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -215,7 +219,7 @@
 
                 <Grid Grid.Row="2"
               Background="#4392f1"
-                      Opacity="0.90" Margin="0,418,0,0"
+                      Opacity="0.90" 
                      DataContext="{Binding CurrentConditions}"
               >
 
@@ -233,6 +237,10 @@
                         <TextBlock Text="{Binding WeatherText}"
                            Foreground="#f4f4f8"
                            FontSize="18"
+                           Margin="20,0"/>
+                        <TextBlock Text="{Binding HasPrecipitation,Converter={StaticResource BoolToRain}}"
+                           Foreground="#f4f4f8"
+                           FontSize="10"
                            Margin="20,0"/>
                     </StackPanel>
                     <TextBlock Grid.Column="1"
